@@ -1,4 +1,4 @@
 all:
-	@./solve.py
+	@./solve.py maze || make -s
 
 test:all
