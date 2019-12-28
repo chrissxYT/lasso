@@ -40,7 +40,6 @@ def main():
                 startY = l
     snake = {'x': startX, 'y': startY, 'f': '0'}
     nodes.append(snake.copy())
-    print('Starting snake at x: {}, y: {}'.format(snake['x'], snake['y']))
     while True:
         if maze[snake['y']][snake['x']] == 'Z':
             break
@@ -70,7 +69,6 @@ def main():
                         maze[nodes[i+1]['y']] = replaceChar(maze[nodes[i+1]['y']], nodes[i+1]['x'], '#')
                     snake = nodes[i].copy()
                     nodes.append(snake.copy())
-                    #print("reset")
                     break
         #print(snake)
         #for m in maze:
@@ -103,10 +101,10 @@ def main():
             else:
                 continue
         else:
-            print('OUCH')
             exit(-1)
     for n in nodes:
-        maze[n['y']] = replaceChar(maze[n['y']], n['x'], '@')
+        if maze[n['y']][n['x']] != '@':
+            maze[n['y']] = replaceChar(maze[n['y']], n['x'], '@')
     for m in maze:
         print(m)
 
